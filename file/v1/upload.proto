@@ -3,7 +3,7 @@ syntax = "proto3";
 
 package file.v1;
 
-option go_package = "bextract-prototype/pb;pb";
+option go_package = "github.com/bexprt/bexgen-client/pb;pb";
 
 message FileUpload {
   string file_id = 1;
