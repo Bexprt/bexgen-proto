@@ -1,4 +1,3 @@
-// proto/file/upload.proto
 syntax = "proto3";
 
 package file.v1;
@@ -10,5 +9,6 @@ message FileUpload {
   string filename = 2;
   int64 size_bytes = 3;
   string content_type = 4;
-  int64 uploaded_at = 5;
+  string user = 5;
+  int64 uploaded_at = 6;
 }
