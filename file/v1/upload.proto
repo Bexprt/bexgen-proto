@@ -1,6 +1,7 @@
 syntax = "proto3";
-
 package file.v1;
+
+import "users/v1/user.proto";
 
 option go_package = "github.com/bexprt/bexgen-client/pb;pb";
 
@@ -9,6 +10,6 @@ message FileUpload {
   string filename = 2;
   int64 size_bytes = 3;
   string content_type = 4;
-  string user = 5;
+  users.v1.User user = 5; // @gotags: json:"user"
   int64 uploaded_at = 6;
 }
