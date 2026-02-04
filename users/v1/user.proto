@@ -2,18 +2,18 @@ syntax = "proto3";
 
 package users.v1;
 
-option go_package = "github.com/bexprt/bexgen-client/pb;pb";
+option go_package = "github.com/bexprt/bexgen-client/pb/users/v1;usersv1";
 
 message User {
   string email = 3;
-  repeated Group groups = 4;
-  string permissions = 5;
+  repeated string groups = 4;
+  repeated Permissions permissions = 5;
 }
 
 message Group {
   string name = 1;
-  repeated User users = 2;
-  string permissions = 5;
+  repeated string users_emails = 2;
+  repeated Permissions permissions = 5;
 }
 
 message Permissions {
