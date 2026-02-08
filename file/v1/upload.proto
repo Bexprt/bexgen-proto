@@ -4,11 +4,11 @@ package file.v1;
 option go_package = "github.com/bexprt/bexgen-client/pb/file/v1;filev1";
 
 message FileUpload {
-  string file_id = 1;
+  string id = 1;
   string filename = 2;
   string file_path = 3;
   int64 size_bytes = 4;
   string content_type = 5;
-  string user = 6;
+  string user_email = 6;
   int64 uploaded_at = 7;
 }

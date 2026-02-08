@@ -1,0 +1,20 @@
+syntax = "proto3";
+package file.v1;
+
+option go_package = "github.com/bexprt/bexgen-client/pb/file/v1;filev1";
+
+message PerformOCRRequest {
+  string id = 1;
+  bytes file_data = 2;
+  int32 page_limit = 3;
+}
+
+message PerformOCRResponse {
+  string text = 1;
+  int32 pages_processed = 2;
+  map<string, string> metadata = 3;
+}
+
+service OCRService {
+  rpc PerformOCR(PerformOCRRequest) returns (PerformOCRResponse);
+}
