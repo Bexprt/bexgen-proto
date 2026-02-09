@@ -18,3 +18,9 @@ message PerformOCRResponse {
 service OCRService {
   rpc PerformOCR(PerformOCRRequest) returns (PerformOCRResponse);
 }
+
+message OcrResult {
+  string id = 1;
+  string filename = 2;
+  string file_path = 3;
+}
