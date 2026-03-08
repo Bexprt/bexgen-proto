@@ -1,0 +1,31 @@
+syntax = "proto3";
+package classification.v1;
+
+option go_package = "github.com/bexprt/bexgen-client/pb/classification/v1;classificationv1";
+
+service DocumentClassifierService {
+  rpc Classify(ClassifyRequest) returns (ClassifyResponse);
+}
+
+message Category {
+  string name = 1;
+  repeated float embedding = 2;
+}
+
+message Subcategory {
+  string name = 1;
+  string category = 2;
+  repeated float embedding = 3;
+}
+
+message ClassifyRequest {
+  string text = 1;
+  repeated Category categories = 2;
+  repeated Subcategory subcategories = 3;
+}
+
+message ClassifyResponse {
+  string category = 1;
+  string label = 2;
+  float confidence = 3;
+}
