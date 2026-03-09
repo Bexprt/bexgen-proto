@@ -15,7 +15,8 @@ message Category {
 message Subcategory {
   string name = 1;
   string category = 2;
-  repeated float embedding = 3;
+  string description = 3;
+  repeated float embedding = 4;
 }
 
 message ClassifyRequest {
