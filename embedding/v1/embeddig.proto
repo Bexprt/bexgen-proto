@@ -1,0 +1,11 @@
+syntax = "proto3";
+package embedding.v1;
+
+option go_package = "github.com/bexprt/bexgen-client/pb/embedding/v1;embeddingv1";
+
+message EmbeddingResult {
+  string id = 1;
+  string index = 2;
+  string model = 3;
+  int32 dimensions = 4;
+}

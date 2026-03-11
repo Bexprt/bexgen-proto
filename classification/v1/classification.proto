@@ -31,3 +31,10 @@ message ClassifyResponse {
   string label = 2;
   float confidence = 3;
 }
+
+message ClassifyResult {
+  string id = 1;
+  string category = 2;
+  string label = 3;
+  float confidence = 4;
+}

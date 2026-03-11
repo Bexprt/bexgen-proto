@@ -43,3 +43,12 @@ message ExtractFieldsResponse {
   string site_id = 4;
   COIFields certificate_of_occupancy = 5;
 }
+
+message ExtractFieldsResult {
+  string id = 1;
+  repeated Address addresses = 2;
+  repeated DateItem dates = 3;
+  string landlord = 4;
+  string site_id = 5;
+  COIFields certificate_of_occupancy = 6;
+}
