@@ -1,0 +1,45 @@
+syntax = "proto3";
+package address.v1;
+
+option go_package = "github.com/bexprt/bexgen-client/pb/address/v1;addressv1";
+
+service DocumentExtractorService {
+  rpc ExtractFields(ExtractFieldsRequest) returns (ExtractFieldsResponse);
+}
+
+message ExtractFieldsRequest {
+  string document_text = 1;
+}
+
+message Address {
+  string address_line_1 = 1;
+  string address_line_2 = 2;
+  string city = 3;
+  string state = 4;
+  string zip_code = 5;
+}
+
+message EntityAddress {
+  string address_line_1 = 1;
+  string zip_code = 2;
+}
+
+message DateItem {
+  string date = 1;
+  string description = 2;
+}
+
+message COIFields {
+  string expiry_date = 1;
+  string license_identity = 2;
+  string licensing_authority = 3;
+  EntityAddress entity_address = 4;
+}
+
+message ExtractFieldsResponse {
+  repeated Address addresses = 1;
+  repeated DateItem dates = 2;
+  string landlord = 3;
+  string site_id = 4;
+  COIFields certificate_of_occupancy = 5;
+}
