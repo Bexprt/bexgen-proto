@@ -52,3 +52,51 @@ message ExtractFieldsResult {
   string site_id = 5;
   COIFields certificate_of_occupancy = 6;
 }
+
+service ValidationService {
+  rpc ValidateFields(ValidateFieldsRequest) returns (ValidateFieldsResponse);
+}
+
+message ValidateFieldsRequest {
+  ExtractFieldsResult result = 1;
+}
+
+message AddressValidation {
+  Address address = 1;
+  float score = 2;
+}
+
+message DateValidation {
+  DateItem date = 1;
+  float score = 2;
+}
+
+message EntityAddressValidation {
+  EntityAddress entity_address = 1;
+  float score = 2;
+}
+
+message COIFieldsValidation {
+  COIFields certificate_of_occupancy = 1;
+
+  float expiry_date_score = 2;
+  float license_identity_score = 3;
+  float licensing_authority_score = 4;
+
+  EntityAddressValidation entity_address = 5;
+}
+
+message ValidateFieldsResponse {
+  string id = 1;
+
+  repeated AddressValidation addresses = 2;
+  repeated DateValidation dates = 3;
+
+  string landlord = 4;
+  float landlord_score = 5;
+
+  string site_id = 6;
+  float site_id_score = 7;
+
+  COIFieldsValidation certificate_of_occupancy = 8;
+}
